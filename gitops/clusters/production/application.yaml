@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/tambe-jonathan/GitOps-Control-Plane-ArgoCD-Helm.git
-    targetRevision: HEAD
+    targetRevision: develop
     path: charts/devops-taskmaster # This points to your Helm templates
   destination:
     server: https://kubernetes.default.svc

@@ -19,7 +19,7 @@ spec:
       containers:
       - name: devops-taskmaster
         # This matches the ECR/DockerHub repository you configured
-        image: tambe-jonathan/devops-taskmaster:latest 
+        image: jonathan661/devops-taskmaster:latest 
         ports:
         - containerPort: 8080
         resources:

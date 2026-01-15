@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devops-taskmaster-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tambe-jonathan/GitOps-Control-Plane-ArgoCD-Helm.git
+    targetRevision: HEAD
+    path: charts/devops-taskmaster # This points to your Helm templates
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production # The K8s namespace where your app will run
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true # ArgoCD will create the 'production' namespace for you

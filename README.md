@@ -109,7 +109,7 @@ To validate the reliability and resilience of this GitOps Control Plane, I perfo
 
 ---
 
-##  Execution & Deployment Guide
+##  Deployment Guide
 ### Prerequisites
 Ensure you have the following tools installed:
 

@@ -1,0 +1,33 @@
+# Default values for devops-taskmaster.
+replicaCount: 5
+
+image:
+  repository: jonathan661/devops-taskmaster
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8080
+  nodePort: 30001
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# Security Context for the Pod (Helps pass Kyverno policies)
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL

@@ -7,7 +7,7 @@ metadata:
   labels:
     app: devops-taskmaster
 spec:
-  replicas: 3
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: devops-taskmaster

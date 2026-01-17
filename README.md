@@ -99,13 +99,13 @@ To validate the reliability and resilience of this GitOps Control Plane, I perfo
 **Scenario:** An engineer performs "ClickOps" by manually scaling the deployment to 10 replicas via CLI, bypassing Git.
 **Result:** ArgoCD detects the deviation from the `develop` branch and automatically reconciles the cluster back to the desired state (3 replicas) in seconds.
 
-![Drift Test Simulation](./docs/drift-detection.gif)
+![Drift Test Simulation](./docs/assets/drift-detection.gif)
 
 ### 3. Instant Version Rollback
 **Scenario:** A configuration change (scaling to 5 replicas) is pushed to Git, but we need to revert to a previous stable state immediately.
 **Result:** Using ArgoCD's History & Rollback feature, the cluster is reverted to a previous known-good Commit SHA instantaneously.
 
-![Rollback Simulation](./docs/rollback.gif)
+![Rollback Simulation](./docs/assets/rollback-simulation.gif)
 
 ---
 

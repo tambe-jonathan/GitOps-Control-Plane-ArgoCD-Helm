@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: argocd-drift-alerts
+  namespace: monitoring
+  labels:
+    release: observability-stack
+spec:
+  groups:
+  - name: argocd.rules
+    rules:
+    - alert: ArgoCDApplicationOutOfSync
+      # Expr: Looks for apps where sync_status is NOT 'Synced'
+      expr: argocd_app_info{sync_status!="Synced"} > 0
+      for: 2m  # <--- YOUR 3-MINUTE REQUIREMENT
+      labels:
+        severity: critical
+      annotations:
+        summary: "ArgoCD App {{ $labels.name }} Out of Sync"
+        description: "Application {{ $labels.name }} has been drifting from Git for more than 3 minutes."

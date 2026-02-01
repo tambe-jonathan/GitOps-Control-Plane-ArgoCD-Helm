@@ -15,5 +15,9 @@ prometheus:
 
 grafana:
   adminPassword: "admin" # Use a Secret in real life!
+
   persistence:
     enabled: true
+
+  initChownData:
+    enabled: false
